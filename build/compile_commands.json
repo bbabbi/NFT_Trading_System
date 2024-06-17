@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp -I/opt/homebrew/opt/openssl@3/include -isystem /opt/homebrew/Cellar/openssl@3/3.3.0/include -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/main.dir/main.cpp.o -c /Users/moonchaeyeong/Desktop/NFT_Trading_System/main.cpp",
+  "file": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp -I/opt/homebrew/opt/openssl@3/include -isystem /opt/homebrew/Cellar/openssl@3/3.3.0/include -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/main.dir/blockchain/blockchain.cpp.o -c /Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain/blockchain.cpp",
+  "file": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain/blockchain.cpp",
+  "output": "CMakeFiles/main.dir/blockchain/blockchain.cpp.o"
+},
+{
+  "directory": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp -I/opt/homebrew/opt/openssl@3/include -isystem /opt/homebrew/Cellar/openssl@3/3.3.0/include -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/main.dir/encryption/encryption.cpp.o -c /Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption/encryption.cpp",
+  "file": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption/encryption.cpp",
+  "output": "CMakeFiles/main.dir/encryption/encryption.cpp.o"
+},
+{
+  "directory": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/blockchain -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/encryption -I/Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp -I/opt/homebrew/opt/openssl@3/include -isystem /opt/homebrew/Cellar/openssl@3/3.3.0/include -g -std=gnu++14 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -o CMakeFiles/main.dir/zkp/zkp.cpp.o -c /Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp/zkp.cpp",
+  "file": "/Users/moonchaeyeong/Desktop/NFT_Trading_System/zkp/zkp.cpp",
+  "output": "CMakeFiles/main.dir/zkp/zkp.cpp.o"
+}
+]

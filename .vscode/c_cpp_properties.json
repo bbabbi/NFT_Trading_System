@@ -1,0 +1,20 @@
+{
+  "configurations": [
+      {
+          "name": "Mac",
+          "includePath": [
+              "${workspaceFolder}/**",
+              "/usr/local/include",
+              "/opt/homebrew/opt/cryptopp/include",
+              "/opt/homebrew/opt/openssl@3/include"
+          ],
+          "defines": [],
+          "macFrameworkPath": [],
+          "compilerPath": "/usr/bin/clang",
+          "cStandard": "c11",
+          "cppStandard": "c++14",
+          "intelliSenseMode": "macos-clang-x64"
+      }
+  ],
+  "version": 4
+}
