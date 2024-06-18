@@ -5,7 +5,7 @@ int main() {
     Blockchain blockchain;
     auto pp = blockchain.setup();
 
-    std::string content = "디지털 콘텐츠 데이터";
+    std::string content = "digital contents data";
     std::string encryptedContent = content; // 임시로 content를 암호화된 데이터로 사용
 
     std::string proofOfContent = blockchain.registerContent(pp, encryptedContent);

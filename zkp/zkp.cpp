@@ -1,5 +1,5 @@
-#include "zkp/zkp.h"
-#include <openssl/sha.h>
+#include <zkp/zkp.h>
+#include <openssl/evp.h>
 #include <sstream>
 #include <iomanip>
 
@@ -13,14 +13,35 @@ std::string ZKP::setupAcc() {
 
 std::string ZKP::PRF(const std::string &key, const std::vector<uint8_t> &data) {
     std::string result;
-    SHA256_CTX sha256;
-    SHA256_Init(&sha256);
-    SHA256_Update(&sha256, key.c_str(), key.size());
-    SHA256_Update(&sha256, data.data(), data.size());
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256_Final(hash, &sha256);
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    if (mdctx == nullptr) throw std::runtime_error("Failed to create EVP_MD_CTX");
+
+    if (EVP_DigestInit_ex(mdctx, EVP_sha256(), nullptr) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to initialize digest context");
+    }
+
+    if (EVP_DigestUpdate(mdctx, key.c_str(), key.size()) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to update digest with key");
+    }
+
+    if (EVP_DigestUpdate(mdctx, data.data(), data.size()) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to update digest with data");
+    }
+
+    unsigned char hash[EVP_MAX_MD_SIZE];
+    unsigned int lengthOfHash = 0;
+    if (EVP_DigestFinal_ex(mdctx, hash, &lengthOfHash) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to finalize digest");
+    }
+
+    EVP_MD_CTX_free(mdctx);
+
     std::stringstream ss;
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i) {
+    for (unsigned int i = 0; i < lengthOfHash; ++i) {
         ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
     }
     result = ss.str();
@@ -29,13 +50,30 @@ std::string ZKP::PRF(const std::string &key, const std::vector<uint8_t> &data) {
 
 std::string ZKP::PRF(const std::string &data) {
     std::string result;
-    SHA256_CTX sha256;
-    SHA256_Init(&sha256);
-    SHA256_Update(&sha256, data.c_str(), data.size());
-    unsigned char hash[SHA256_DIGEST_LENGTH];
-    SHA256_Final(hash, &sha256);
+    EVP_MD_CTX *mdctx = EVP_MD_CTX_new();
+    if (mdctx == nullptr) throw std::runtime_error("Failed to create EVP_MD_CTX");
+
+    if (EVP_DigestInit_ex(mdctx, EVP_sha256(), nullptr) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to initialize digest context");
+    }
+
+    if (EVP_DigestUpdate(mdctx, data.c_str(), data.size()) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to update digest with data");
+    }
+
+    unsigned char hash[EVP_MAX_MD_SIZE];
+    unsigned int lengthOfHash = 0;
+    if (EVP_DigestFinal_ex(mdctx, hash, &lengthOfHash) != 1) {
+        EVP_MD_CTX_free(mdctx);
+        throw std::runtime_error("Failed to finalize digest");
+    }
+
+    EVP_MD_CTX_free(mdctx);
+
     std::stringstream ss;
-    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i) {
+    for (unsigned int i = 0; i < lengthOfHash; ++i) {
         ss << std::hex << std::setw(2) << std::setfill('0') << (int)hash[i];
     }
     result = ss.str();
